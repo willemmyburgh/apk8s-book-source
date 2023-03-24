@@ -1,21 +1,15 @@
-apiVersion: certmanager.k8s.io/v1alpha1
+apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: gitlab-apk8s
+  name: gitlab-platform
   namespace: gitlab
 spec:
-  secretName: gitlab-apk8s-tls
+  secretName: gitlab-platform-tls
   issuerRef:
-    name: letsencrypt-production
+    name: letsencrypt-staging
     kind: ClusterIssuer
-  commonName: gitlab.apk8s.dev
+  commonName: gitlab.platform.glslinc.com
   dnsNames:
-    - gitlab.apk8s.dev
-    - reg.gitlab.apk8s.dev
-  acme:
-    config:
-      - http01:
-          ingressClass: traefik
-        domains:
-          - gitlab.apk8s.dev
-          - reg.gitlab.apk8s.dev
+    - gitlab.platform.glslinc.com
+    - reg.gitlab.platform.glslinc.com
+  
