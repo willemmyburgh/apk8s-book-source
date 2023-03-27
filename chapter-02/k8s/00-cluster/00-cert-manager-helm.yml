@@ -9,8 +9,9 @@ metadata:
   name: cert-manager
   namespace: kube-system
 spec:
-  repo: https://charts.jetstack.io
   chart: cert-manager
   targetNamespace: cert-manager
-  #set: installCRDs=true
+  repo: https://charts.jetstack.io
+  set:
+    installCRDs: "true"
  
