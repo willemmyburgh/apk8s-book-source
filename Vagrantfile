@@ -14,6 +14,7 @@ Vagrant.configure("2") do |config|
   # boxes at https://vagrantcloud.com/search.
   # config.vm.box = "ubuntu/bionic64"
   config.vm.box = "ubuntu/jammy64"
+  #config.vm.disk :disk, size: "80GB", primary: true
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -26,9 +27,9 @@ Vagrant.configure("2") do |config|
   # NOTE: This will enable public access to the opened port
   config.vm.network "forwarded_port", guest: 443, host: 4430
   config.vm.network "forwarded_port", guest: 80, host: 8080
+   config.vm.network "forwarded_port", guest: 32222, host: 32222
+  config.vm.network "forwarded_port", guest: 6443, host: 6443
   #config.vm.network "forwarded_port", guest: 5050, host: 5050
-  #config.vm.network "forwarded_port", guest: 32222, host: 32222 
-  #config.vm.network "forwarded_port", guest: 6443, host: 6443 
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine and only allow access
@@ -57,7 +58,7 @@ Vagrant.configure("2") do |config|
   config.vm.provider "virtualbox" do |vb|
     # Display the VirtualBox GUI when booting the machine
     #vb.gui = true
- 
+
     # Customize the amount of memory on the VM:
     vb.memory = "8192"
   end
