@@ -27,7 +27,7 @@ Vagrant.configure("2") do |config|
   # NOTE: This will enable public access to the opened port
   config.vm.network "forwarded_port", guest: 443, host: 4430
   config.vm.network "forwarded_port", guest: 80, host: 8080
-   config.vm.network "forwarded_port", guest: 32222, host: 32222
+  config.vm.network "forwarded_port", guest: 32222, host: 32222
   config.vm.network "forwarded_port", guest: 6443, host: 6443
   #config.vm.network "forwarded_port", guest: 5050, host: 5050
 
