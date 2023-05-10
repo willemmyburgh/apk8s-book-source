@@ -45,6 +45,8 @@ spec:
     useAllNodes: true
     useAllDevices: true
     #deviceFilter:
+    devices:
+    - name: /dev/loop1
   monitoring:
     enabled: false
   healthCheck:
