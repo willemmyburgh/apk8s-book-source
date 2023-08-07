@@ -19,7 +19,7 @@ data:
       'X-Forwarded-Ssl' => 'on'
     }
 
-    registry_external_url 'https://reg.platform.glslinc.com'
+    registry_external_url 'https://reg.gitlab.platform.glslinc.com'
 
     gitlab_rails['registry_enabled'] = true
 
