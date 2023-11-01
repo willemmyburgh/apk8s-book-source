@@ -1,0 +1,18 @@
+docker run \
+--privileged \
+--name glslinc-k3s \
+--hostname glslinc-k3s \
+-v glslinc-kubelet:/var/lib/kubelet \
+-v glslinc-cni:/var/lib/cni \
+-v glslinc-log:/var/log \
+-v glslinc-k3s:/var/lib/rancher/k3s \
+-v glslinc-k3s-server:/var/lib/rancher/k3s/server \
+-v glslinc-k3s-db:/var/lib/rancher/k3s/server/db \
+-v glslinc-gitlab:/srv/gitlab \
+-p 6443:6443 \
+-p 5050:5050 \
+-p 32222:32222 \
+-p 8080:80 \
+-p 4430:443 \
+-d rancher/k3s:v1.27.6-k3s1 \
+server
