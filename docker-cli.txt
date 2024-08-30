@@ -1,6 +1,6 @@
 docker run \
 --privileged \
---name glslinc-k3s \
+--name glslinc-k3s-direct \
 --hostname glslinc-k3s \
 -v glslinc-kubelet:/var/lib/kubelet \
 -v glslinc-cni:/var/lib/cni \
