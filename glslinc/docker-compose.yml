@@ -1,0 +1,41 @@
+services:
+  glslinc-k3s:
+    container_name: glslinc-k3s
+    hostname: glslinc-k3s
+    restart: always
+    image: rancher/k3s:v1.30.3-k3s1
+    command:
+      - server
+    tmpfs:
+      - /run
+      - /var/run
+    privileged: true
+    volumes:
+      - glslinc_k3s:/var/lib/rancher/k3s
+      - glslinc_k3s-server:/var/lib/rancher/k3s/server
+      - glslinc_k3s-db:/var/lib/rancher/k3s/server/db
+      - glslinc_kubelet:/var/lib/kubelet
+      - glslinc_cni:/var/lib/cni
+      - glslinc_log:/var/log
+      - glslinc_gitlab:/srv/gitlab
+    ports:
+      - 6443:6443
+      - 4430:443
+      - 5050:5050
+      - 8080:80
+      - 32222:32222
+volumes:
+  glslinc_kubelet:
+    external: true
+  glslinc_cni:
+    external: true
+  glslinc_log:
+    external: true
+  glslinc_k3s:
+    external: true
+  glslinc_k3s-server:
+    external: true
+  glslinc_k3s-db:
+    external: true
+  glslinc_gitlab:
+    external: true
