@@ -3,7 +3,7 @@ services:
     container_name: glslinc-k3s
     hostname: glslinc-k3s
     restart: always
-    image: rancher/k3s:v1.33.1-k3s1
+    image: rancher/k3s:v1.33.2-k3s1
     command:
       - server
     tmpfs:
