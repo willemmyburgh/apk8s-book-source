@@ -1,0 +1,16 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: force-https-naked
+  namespace: myburgh-sg
+spec:
+  redirectRegex:
+    # Matches:
+    #   http://myburgh.sg/...         → rewrites scheme
+    #   http://www.myburgh.sg/...     → rewrites scheme, strips www
+    #   https://www.myburgh.sg/...    → strips www
+    # Does NOT match:
+    #   https://myburgh.sg/...        → passes through, no redirect
+    regex: "^(?:http://(?:www\\.)?|https://www\\.)(.+)"
+    replacement: "https://${1}"
+    permanent: true
