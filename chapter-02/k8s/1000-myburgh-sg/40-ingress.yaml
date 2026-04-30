@@ -7,7 +7,6 @@ metadata:
     cert-manager.io/cluster-issuer: "letsencrypt-production"
     traefik.ingress.kubernetes.io/router.middlewares: myburgh-sg-force-https-naked@kubernetescrd
 spec:
-spec:
   ingressClassName: traefik
   rules:
     - host: myburgh.sg
